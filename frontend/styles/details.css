@@ -25,4 +25,82 @@ main {
 
 .description {
     flex: 5;
+    position: relative;
+    background-image: 
+    linear-gradient(to right, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.4), rgba(33, 33, 33, 0)),
+    linear-gradient(to top, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.5)),
+    url(/frontend/assets/images/poster.webp);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.description h2 {
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.movie-info-titles {
+    align-items: center;
+    min-width: 200px;
+    gap: 20px;
+}
+
+.movie-info-titles h3 {
+    text-align: center;
+}
+
+.movie-info {
+    align-items: flex-start;
+    flex: 1;
+    gap: 20px;
+}
+
+.movie-summary {
+    margin-top: 50px;
+    padding-left: 20px;
+}
+
+.movie-summary p {
+    padding-left: 50px;
+    width: 80%;
+}
+
+.description a {
+    color: white;
+    margin: 50px;
+    width: 150px;
+    height: 150px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.description a:hover{
+    color: #0080ff;
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        flex-wrap: wrap;
+    }
+    .poster-img-container{
+        align-items: center;
+    }
+    .poster-img {
+        max-width: 250px;
+        margin: 20px;
+    }
+    .description h2 {
+        text-align: center;
+    }
+    .description p {
+        padding: 20px;
+        width: 90%;
+    }
+    .description {
+        background-image: 
+    linear-gradient(to bottom, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.7), rgba(33, 33, 33, 0)),
+    url(/frontend/assets/images/poster.webp);
+    }
 }
