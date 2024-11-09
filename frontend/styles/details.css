@@ -61,11 +61,15 @@ main {
 
 .movie-summary {
     margin-top: 50px;
-    padding-left: 20px;
+}
+
+.movie-summary h3 {
+    width: 200px;
+    text-align: center;
 }
 
 .movie-summary p {
-    padding-left: 50px;
+    padding-left: 100px;
     width: 80%;
 }
 
