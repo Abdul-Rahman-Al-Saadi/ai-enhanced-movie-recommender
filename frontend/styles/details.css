@@ -38,7 +38,9 @@ main {
 
 .description h2 {
     padding-top: 50px;
+    padding-left: 30px;
     margin-bottom: 50px;
+    font-size: 38px;
 }
 
 .movie-info-titles {
