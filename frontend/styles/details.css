@@ -208,7 +208,7 @@ main {
     background-color: red;
 }
 
-main {
+/* main {
     position: relative;
     overflow: hidden;
 }
@@ -223,4 +223,4 @@ main.blurred::before {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
     z-index: 8;
-}
+} */

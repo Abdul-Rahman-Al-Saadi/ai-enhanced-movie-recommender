@@ -1,7 +1,7 @@
 let isLoggedIn = false;
 
 
-// toggeling the visibility of bookmark
+// toggling the visibility of bookmark
 function toggleVisibility(element){
     element.style.display = (element.style.display === "none" || element.style.display === "" ) ? "block" : "none";
 }
