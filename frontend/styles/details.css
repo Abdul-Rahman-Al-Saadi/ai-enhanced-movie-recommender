@@ -68,8 +68,30 @@ main {
     gap: 20px;
 }
 
+.movie-rating {
+    column-gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.stars {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.star {
+    color: gray; 
+    padding: 0 5px;
+    transition: color 0.3s;
+}
+
+.star.selected {
+    color: gold;
+}
+
 .movie-summary {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .movie-summary h3 {
