@@ -1,0 +1,226 @@
+nav {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+}
+
+body {
+    background-color: #212121;
+}
+
+main {
+    position: relative;
+    height: 80vh;
+    background-color: #212121;
+}
+
+.poster-img-container{
+    flex: 2;
+}
+.poster-img {
+    position: relative;
+    width: 70%;
+    min-width: 200px;
+    height: auto;
+    margin-left: 30px;
+}
+
+.bookmark-icon {
+    position:absolute;
+    display: none;
+    width: 50px;
+    height: 50px;
+    top: -2%;
+    left: 0%;
+}
+
+.description {
+    flex: 5;
+    position: relative;
+    background-image: 
+    linear-gradient(to right, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0)),
+    linear-gradient(to top, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.3)),
+    url(/frontend/assets/images/poster.webp);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.description h2 {
+    padding-top: 50px;
+    padding-left: 30px;
+    margin-bottom: 50px;
+    font-size: 38px;
+}
+
+.movie-info-titles {
+    align-items: center;
+    min-width: 200px;
+    gap: 20px;
+}
+
+.movie-info-titles h3 {
+    text-align: center;
+}
+
+.movie-info {
+    align-items: flex-start;
+    flex: 1;
+    gap: 20px;
+}
+
+.movie-rating {
+    column-gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.stars {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.star {
+    color: gray; 
+    padding: 0 5px;
+    transition: color 0.3s;
+}
+
+.star.selected {
+    color: gold;
+}
+
+.movie-summary {
+    margin-top: 20px;
+}
+
+.movie-summary h3 {
+    width: 200px;
+    text-align: center;
+}
+
+.movie-summary p {
+    padding-left: 100px;
+    width: 80%;
+}
+
+.bookmark-container {
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 20%;
+}
+
+.bookmark-container a {
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.bookmark-container a:hover{
+    color: #0080ff;
+}
+
+.bookmark-container button {
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: #0080ff;
+    color: white;
+    background-color: rgba(33, 33, 33, 1);
+    transition: all 0.3s;
+}
+
+.bookmark-container button:hover {
+    background-color: #0080ff;
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        flex-wrap: wrap;
+    }
+    .poster-img-container{
+        align-items: center;
+    }
+    .poster-img {
+        max-width: 250px;
+        margin: 20px;
+    }
+    .description h2 {
+        text-align: center;
+    }
+    .description p {
+        padding: 20px;
+        width: 90%;
+    }
+    .description {
+        background-image: 
+    linear-gradient(to bottom, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.7), rgba(33, 33, 33, 0)),
+    url(/frontend/assets/images/poster.webp);
+    }
+}
+
+.form-popup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 9;
+}
+
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: #212121;
+    backdrop-filter: blur(8px);
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.form-container .btn {
+    background-color: #0080ff;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.form-container .cancel {
+    background-color: red;
+}
+
+main {
+    position: relative;
+    overflow: hidden;
+}
+
+main.blurred::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    z-index: 8;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/base/utilities.css">
+    <link rel="stylesheet" href="../styles/base/colors.css">
+    <link rel="stylesheet" href="../styles/base/base.css">
+    <link rel="stylesheet" href="../styles/details.css">
+    <title>Details</title>
+</head>
+<body>
+    <nav>
+        Movie Details
+    </nav>
+    <main class="flex full-width">
+        <div class="poster-img-container flex center">
+            <div class="poster-img center">
+                <img class="bookmark-icon" id="bookmark-icon" src="/frontend/assets/icons/bookmark-blue.png" alt="">
+                <img id="movie-poster" src="../assets/images/poster2.jpeg" alt="">
+            </div>
+        </div>
+        
+        <div class="description flex column">
+            <div>
+                <h2>INCEPTION</h2>
+            </div>
+            <div class="flex row">
+                <div class="movie-info-titles flex column">
+                    <h3 class="blue-text">RELEASE DATE</h3>
+                    <h3 class="blue-text">GENRE</h3>
+                    <h3 class="blue-text">DURATION</h3>
+                    <h3 class="blue-text">CAST</h3>
+                </div>
+                <div class="movie-info flex column">
+                    <h3 id="movie-date">Dummy data</h3>
+                    <h3 id="movie-genre">Dummy data</h3>
+                    <h3 id="movie-duration">Dummy data</h3>
+                    <h3 id="movie-cast">Dummy data</h3>
+                </div>
+            </div>
+            <div class="movie-rating flex">
+                <h5>Rate this movie:</h5>
+                <div class="stars" id="star-rating">
+                    <span class="star" data-value="1">☆</span>
+                    <span class="star" data-value="2">☆</span>
+                    <span class="star" data-value="3">☆</span>
+                    <span class="star" data-value="4">☆</span>
+                    <span class="star" data-value="5">☆</span>
+                </div>
+                <!-- <button id="submit-rating" disabled>Submit Rating</button> -->
+            </div>
+            <div class="movie-summary flex column">
+                <h3 class="blue-text">SUMMARY</h3>
+                <p>Dummy data Dummy data Dummy data Dummy data Dummy data Dummy data Dummy data Dummy data Dummy data Dummy data </p>
+            </div>
+            <div class="bookmark-container flex">
+                <a href="">Watch Trailer ></a>
+                <button id="bookmark-btn">Bookmark Movie</button>
+            </div>
+        </div>
+        <div class="form-popup" id="myForm">
+            <form class="form-container">
+              <h1>Login</h1>
+          
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+          
+              <button type="submit" class="btn">Login</button>
+              <button type="button" class="btn cancel">Close</button>
+            </form>
+          </div>
+    </main>
+    <script src="/frontend/js/details.js"></script>
+</body>
+</html>
