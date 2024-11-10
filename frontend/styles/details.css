@@ -17,18 +17,27 @@ main {
     flex: 2;
 }
 .poster-img {
+    position: relative;
     width: 70%;
     min-width: 200px;
     height: auto;
     margin-left: 30px;
 }
 
+.bookmark-icon {
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    top: -2%;
+    left: 0%;
+}
+
 .description {
     flex: 5;
     position: relative;
     background-image: 
-    linear-gradient(to right, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.4), rgba(33, 33, 33, 0)),
-    linear-gradient(to top, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.5)),
+    linear-gradient(to right, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0)),
+    linear-gradient(to top, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.3)),
     url(/frontend/assets/images/poster.webp);
     background-size: cover;
     background-position: center center;
@@ -73,17 +82,35 @@ main {
     width: 80%;
 }
 
-.description a {
+.bookmark-container {
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 20%;
+}
+
+.bookmark-container a {
     color: white;
-    margin: 50px;
-    width: 150px;
-    height: 150px;
     font-weight: bold;
     transition: all 0.3s;
 }
 
-.description a:hover{
+.bookmark-container a:hover{
     color: #0080ff;
+}
+
+.bookmark-container button {
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: #0080ff;
+    color: white;
+    background-color: rgba(33, 33, 33, 1);
+    transition: all 0.3s;
+}
+
+.bookmark-container button:hover {
+    background-color: #0080ff;
 }
 
 @media only screen and (max-width: 600px) {
