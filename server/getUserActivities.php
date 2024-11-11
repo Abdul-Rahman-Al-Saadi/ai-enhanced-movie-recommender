@@ -25,7 +25,7 @@ UNION
 SELECT m.movie_name
 FROM movies_db.movies m
 JOIN movies_db.user_activities a ON m.movie_id = a.movie_id
-WHERE a.user_id = ?;";
+WHERE a.user_id = ? AND a.time_spent > 4;";
 
 $query = $connection->prepare($queryStatment);
 $query->bind_param('iii', $user_id, $user_id, $user_id);
