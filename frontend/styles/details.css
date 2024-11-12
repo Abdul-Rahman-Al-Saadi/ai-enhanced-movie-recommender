@@ -156,6 +156,7 @@ main {
         width: 90%;
     }
     .description {
+        min-width: 400px;
         background-image: 
     linear-gradient(to bottom, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.7), rgba(33, 33, 33, 0)),
     url(/frontend/assets/images/poster.webp);
@@ -210,7 +211,6 @@ main {
 
 main {
     position: relative;
-    overflow: hidden;
 }
 
 main.blurred::before {

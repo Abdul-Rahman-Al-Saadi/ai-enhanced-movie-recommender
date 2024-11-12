@@ -1,5 +1,6 @@
-let isLoggedIn = false;
-
+let isLoggedIn = true;
+let user_id = 2;
+let movie_id = 2;
 
 // toggeling the visibility of bookmark
 function toggleVisibility(element){
@@ -10,6 +11,7 @@ function openForm(){
     document.getElementById('myForm').style.display = 'block';
 }
 function closeForm(){
+    mainElement.classList.remove('blurred');
     document.getElementById('myForm').style.display = 'none';
 }
 
@@ -18,14 +20,37 @@ const mainElement = document.querySelector('main');
 
 const cancelBtn = document.querySelector('.cancel');
 cancelBtn.addEventListener('click', () =>{
-    mainElement.classList.remove('blurred');
-    toggleVisibility(formPopup);
+    closeForm(formPopup);
 })
 
 const bookmarkIcon = document.getElementById('bookmark-icon');
-document.getElementById('bookmark-btn').addEventListener('click', () =>{
-    isLoggedIn ? toggleVisibility(bookmarkIcon) : openForm();
-})
+document.getElementById('bookmark-btn').addEventListener('click', async () => {
+    if (isLoggedIn) {
+        toggleVisibility(bookmarkIcon);
+        try {
+            const response = await fetch('http://localhost/ai-enhanced-movie-recommender/server/bookmarkController.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: user_id,
+                    movie_id: movie_id,
+                })
+            });
+            if (!response.ok) {
+                throw new Error('Failed to add bookmark');
+            }
+            const data = await response.json();
+            console.log('Movie added:', data);
+        } catch (error) {
+            console.error('Error sending data:', error);
+        }
+    } else {
+        openForm();
+    }
+});
+
 
 // styling and saving the star rating
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,12 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedRating = 0;
 
     stars.forEach(star => {
-        star.addEventListener('mouseover', function() {
+        star.addEventListener('mouseover', () => {
             const value = parseInt(star.getAttribute('data-value'));
             highlightStars(value);
         });
 
-        star.addEventListener('mouseout', function() {
+        star.addEventListener('mouseout', () => {
             if (selectedRating === 0) {
                 resetStars();
             } else {
@@ -47,11 +72,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        star.addEventListener('click', function() {
-            selectedRating = parseInt(star.getAttribute('data-value'));
-            updateRatingDisplay();
-            submitButton.disabled = false;
-            submitButton.classList.add('enabled');
+        star.addEventListener('click', async () => {
+            if(isLoggedIn){
+                selectedRating = parseInt(star.getAttribute('data-value'));
+                updateRatingDisplay();
+                console.log(selectedRating);
+                try {
+                    const response = await fetch('http://localhost/ai-enhanced-movie-recommender/server/ratingController.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            user_id: user_id,
+                            movie_id: movie_id,
+                            rating: selectedRating,
+                        })
+                    });
+                    if (!response.ok) {
+                        throw new Error('Failed to add bookmark');
+                    }
+                    const data = await response.json();
+                    console.log('Movie added:', data);
+                } catch (error) {
+                    console.error('Error sending data:', error);
+                }
+            }else{
+                openForm();
+            }
         });
     });
 
@@ -70,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     function updateRatingDisplay() {
-        ratingValueElement.textContent = selectedRating;
+        // ratingValueElement.textContent = selectedRating;
         highlightStars(selectedRating);
     }
 });
