@@ -55,13 +55,8 @@ main {
 }
 
 .movie-info-titles {
-    align-items: center;
     min-width: 200px;
     gap: 20px;
-}
-
-.movie-info-titles h3 {
-    text-align: center;
 }
 
 .movie-info {
