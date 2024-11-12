@@ -6,11 +6,14 @@ if ($connection->connect_error) {
     die("Error Connecting to Database");
 }
 
-if (isset($_POST['user_id'], $_POST['movie_id'])) {
-    $user_id = $_POST['user_id'];
-    $movie_id = $_POST['movie_id'];
+$data = json_decode(file_get_contents('php://input'), true);
+
+if (isset($data['user_id'], $data['movie_id'])) {
+    $user_id = $data['user_id'];
+    $movie_id = $data['movie_id'];
 } else {
-    die("Couldn't get the user or the movie for the bookmark");
+    echo json_encode(["message"=>"Invalid parameters"]);
+    exit();
 }
 
 $query = $connection->prepare("SELECT * FROM bookmarks WHERE user_id = ? AND movie_id = ?");
