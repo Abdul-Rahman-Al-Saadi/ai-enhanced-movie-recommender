@@ -1,5 +1,5 @@
-let isLoggedIn = false;
-
+let isLoggedIn = true;
+let user_id = 2;
 
 // toggeling the visibility of bookmark
 function toggleVisibility(element){
@@ -23,9 +23,34 @@ cancelBtn.addEventListener('click', () =>{
 })
 
 const bookmarkIcon = document.getElementById('bookmark-icon');
-document.getElementById('bookmark-btn').addEventListener('click', () =>{
-    isLoggedIn ? toggleVisibility(bookmarkIcon) : openForm();
-})
+document.getElementById('bookmark-btn').addEventListener('click', async () => {
+    if (isLoggedIn) {
+        toggleVisibility(bookmarkIcon);
+        try {
+            const response = await fetch('http://localhost/ai-enhanced-movie-recommender/server/bookmarkController.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: user_id,
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to add bookmark');
+            }
+
+            const data = await response.json();
+            console.log('Movie added:', data);
+        } catch (error) {
+            console.error('Error sending data:', error);
+        }
+    } else {
+        openForm();
+    }
+});
+
 
 // styling and saving the star rating
 document.addEventListener('DOMContentLoaded', () => {
@@ -54,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }else{
                 openForm();
             }
-            
         });
     });
 

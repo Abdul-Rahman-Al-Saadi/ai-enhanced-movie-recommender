@@ -10,7 +10,8 @@ if (isset($_POST['user_id'], $_POST['movie_id'])) {
     $user_id = $_POST['user_id'];
     $movie_id = $_POST['movie_id'];
 } else {
-    die("Couldn't get the user or the movie for the bookmark");
+    echo json_encode(["message"=>"Invalid parameters"]);
+    exit();
 }
 
 $query = $connection->prepare("SELECT * FROM bookmarks WHERE user_id = ? AND movie_id = ?");
