@@ -38,11 +38,9 @@ document.getElementById('bookmark-btn').addEventListener('click', async () => {
                     movie_id: movie_id,
                 })
             });
-
             if (!response.ok) {
                 throw new Error('Failed to add bookmark');
             }
-
             const data = await response.json();
             console.log('Movie added:', data);
         } catch (error) {
@@ -74,10 +72,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        star.addEventListener('click', () => {
+        star.addEventListener('click', async () => {
             if(isLoggedIn){
                 selectedRating = parseInt(star.getAttribute('data-value'));
                 updateRatingDisplay();
+                console.log(selectedRating);
+                try {
+                    const response = await fetch('http://localhost/ai-enhanced-movie-recommender/server/ratingController.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            user_id: user_id,
+                            movie_id: movie_id,
+                            rating: selectedRating,
+                        })
+                    });
+                    if (!response.ok) {
+                        throw new Error('Failed to add bookmark');
+                    }
+                    const data = await response.json();
+                    console.log('Movie added:', data);
+                } catch (error) {
+                    console.error('Error sending data:', error);
+                }
             }else{
                 openForm();
             }
@@ -99,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     function updateRatingDisplay() {
-        ratingValueElement.textContent = selectedRating;
+        // ratingValueElement.textContent = selectedRating;
         highlightStars(selectedRating);
     }
 });
