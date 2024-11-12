@@ -6,17 +6,19 @@ if($connection->connect_error){
     die("Unsuccessful connection with the Database");
 }
 
-if(isset($_POST['user_id'], $_POST['movie_id'], $_POST['action'], $_POST['time_spent'])){
-    $user_id = $_POST['user_id'];
-    $movie_id = $_POST['movie_id'];
-    $action = $_POST['action'];
-    $time_spent = $_POST['time_spent'];
+$data = json_decode(file_get_contents('php://input'), true);
+
+
+if(isset($data['user_id'], $data['movie_id'], $data['time_spent'])){
+    $user_id = $data['user_id'];
+    $movie_id = $data['movie_id'];
+    $time_spent = $data['time_spent'];
 }else{
     die("Unvalid Body Parameters");
 }
 
-$query = $connection->prepare("INSERT INTO user_activities (user_id, movie_id, action, time_spent) VALUES (?, ?, ?, ?)");
-$query->bind_param('iisi', $user_id, $movie_id, $action, $time_spent);
+$query = $connection->prepare("INSERT INTO user_activities (user_id, movie_id, time_spent) VALUES (?, ?, ?)");
+$query->bind_param('iii', $user_id, $movie_id, $time_spent);
 $result = $query->execute();
 
 if($result){
