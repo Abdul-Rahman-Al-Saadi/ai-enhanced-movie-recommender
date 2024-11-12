@@ -6,8 +6,8 @@ if($connection->connect_error){
     die("Unsuccessful connection with the Database");
 }
 
-if(isset($_POST['user_id'])){
-    $user_id = $_POST['user_id'];
+if(isset($_GET['user_id'])){
+    $user_id = $_GET['user_id'];
 }else{
     die("Unvalid Body Parameters");
 }
