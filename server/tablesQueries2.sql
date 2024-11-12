@@ -21,14 +21,16 @@ USE `movies_db` ;
 -- Table `movies_db`.`movies`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `movies_db`.`movies` (
-  `movie_id` INT NOT NULL AUTO_INCREMENT,
-  `movie_name` TINYTEXT NULL,
-  `movie_summary` TEXT NULL,
-  `movie_duration` TEXT NULL,
-  `movie_date` TEXT NULL,
-  `movie_cast` TEXT NULL,
-  `movie_genre` TEXT NULL,
-  `poster_url` TEXT NULL,
+ `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `duration` varchar(255) DEFAULT NULL,
+  `genre` varchar(255) DEFAULT NULL,
+  `release_date` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `director` varchar(255) DEFAULT NULL,
+  `actors` varchar(255) DEFAULT NULL,
+  `banner_url` varchar(255) DEFAULT NULL,
+  `trailer_url` varchar(255) NOT NULL,
   PRIMARY KEY (`movie_id`),
   UNIQUE INDEX `movie_id_UNIQUE` (`movie_id` ASC) )
 ENGINE = InnoDB;
@@ -38,15 +40,14 @@ ENGINE = InnoDB;
 -- Table `movies_db`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `movies_db`.`users` (
-  `user_id` INT NOT NULL AUTO_INCREMENT,
-  `user_name` TEXT NULL,
-  `user_email` TEXT NULL,
-  `user_password` TEXT NULL,
-  `user_type` ENUM("admin", "regular", "blocked") NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(255) NULL,
+  `email` VARCHAR(255) NULL,
+  `password` VARCHAR(255) NULL,
+  `type` ENUM("admin", "regular", "blocked") NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC) )
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `movies_db`.`bookmarks`
