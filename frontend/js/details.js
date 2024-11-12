@@ -1,6 +1,27 @@
 let isLoggedIn = true;
 let user_id = 2;
 let movie_id = 2;
+let startTime;
+
+window.addEventListener('load', () => {startTime = Date.now()});
+
+const sendUserActivity = async () => {
+    const response = fetch()
+}
+
+function handleUserLeaving() {
+    const endTime = Date.now();
+    const timeSpent = Math.floor((endTime - startTime) / 1000);
+    sendUserActivity(timeSpent);
+  }
+
+window.addEventListener('beforeunload', function (event) {
+    handleUserLeaving();
+  });
+  
+  window.addEventListener('popstate', function (event) {
+    handleUserLeaving();
+  });
 
 // toggeling the visibility of bookmark
 function toggleVisibility(element){
