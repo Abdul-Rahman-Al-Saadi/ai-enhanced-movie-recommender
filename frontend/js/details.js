@@ -1,5 +1,6 @@
 let isLoggedIn = true;
 let user_id = 2;
+let movie_id = 2;
 
 // toggeling the visibility of bookmark
 function toggleVisibility(element){
@@ -34,6 +35,7 @@ document.getElementById('bookmark-btn').addEventListener('click', async () => {
                 },
                 body: JSON.stringify({
                     user_id: user_id,
+                    movie_id: movie_id,
                 })
             });
 

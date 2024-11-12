@@ -6,9 +6,11 @@ if ($connection->connect_error) {
     die("Error Connecting to Database");
 }
 
-if (isset($_POST['user_id'], $_POST['movie_id'])) {
-    $user_id = $_POST['user_id'];
-    $movie_id = $_POST['movie_id'];
+$data = json_decode(file_get_contents('php://input'), true);
+
+if (isset($data['user_id'], $data['movie_id'])) {
+    $user_id = $data['user_id'];
+    $movie_id = $data['movie_id'];
 } else {
     echo json_encode(["message"=>"Invalid parameters"]);
     exit();
