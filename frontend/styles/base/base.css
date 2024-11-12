@@ -15,7 +15,7 @@
   }
 
   body {
-    font-family: 'Cinzel';
+    font-family: Montserrat;
   }
   
   img {
@@ -27,3 +27,24 @@
   a {
     text-decoration: none;
   }
+
+nav {
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    background-color: #151516;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+nav ul li{
+    padding:0 50px 0 0;
+    color:white;
+    text-align:center;
+
+}
