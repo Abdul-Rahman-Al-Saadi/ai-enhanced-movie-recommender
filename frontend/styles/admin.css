@@ -19,6 +19,7 @@ nav {
     left: 0; 
     top: 100px;
     row-gap: 20px;
+    border-radius: 0px 20px 20px 0px;
 }
 
 .user-img {
@@ -34,10 +35,10 @@ nav {
     padding-left: 20px;
     margin-top: 10px;
     align-items: center;
-    border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
     column-gap: 20px;
+    border-radius: 20px;
 }
 
 .user-section:hover {
