@@ -5,23 +5,35 @@ let startTime;
 
 window.addEventListener('load', () => {startTime = Date.now()});
 
-const sendUserActivity = async () => {
-    const response = fetch()
-}
+const sendUserActivity = async (timeSpent) => {
+    try {
+        const response = await fetch("http://localhost/ai-enhanced-movie-recommender/server/logUserActivity.php", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user_id,
+                movie_id,
+                time_spent: timeSpent,
+            })
+        });
+        if (!response.ok) {
+            throw new Error('Failed to add user activity');
+        }
+        const data = await response.json();
+        console.log('User Activity added:', data);
+    } catch (error) {
+        console.error('Error sending data:', error);
+    }
+};
 
-function handleUserLeaving() {
+window.addEventListener('beforeunload', function () {
     const endTime = Date.now();
     const timeSpent = Math.floor((endTime - startTime) / 1000);
+    console.log(`User is leaving. Time spent: ${timeSpent} seconds`);
     sendUserActivity(timeSpent);
-  }
-
-window.addEventListener('beforeunload', function (event) {
-    handleUserLeaving();
-  });
-  
-  window.addEventListener('popstate', function (event) {
-    handleUserLeaving();
-  });
+});
 
 // toggeling the visibility of bookmark
 function toggleVisibility(element){

@@ -6,10 +6,13 @@ if($connection->connect_error){
     die("Unsuccessful connection with the Database");
 }
 
-if(isset($_POST['user_id'], $_POST['movie_id'], $_POST['time_spent'])){
-    $user_id = $_POST['user_id'];
-    $movie_id = $_POST['movie_id'];
-    $time_spent = $_POST['time_spent'];
+$data = json_decode(file_get_contents('php://input'), true);
+
+
+if(isset($data['user_id'], $data['movie_id'], $data['time_spent'])){
+    $user_id = $data['user_id'];
+    $movie_id = $data['movie_id'];
+    $time_spent = $data['time_spent'];
 }else{
     die("Unvalid Body Parameters");
 }
