@@ -6,12 +6,15 @@ if($connection->connect_error){
     die("Unsuccessful connection with the database");
 }
 
-if (isset($_POST['user_id'], $_POST['movie_id'], $_POST['rating'])){
-    $user_id = $_POST['user_id'];
-    $movie_id = $_POST['movie_id'];
-    $rating = $_POST['rating'];
+$data = json_decode(file_get_contents('php://input'), true);
+
+if (isset($data['user_id'], $data['movie_id'])) {
+    $user_id = $data['user_id'];
+    $movie_id = $data['movie_id'];
+    $rating = $data['rating'];
 }else{
-    die("Incorrect Rating Info");
+    echo json_encode(["message"=>"Invalid parameters"]);
+    exit();
 }
 
 
