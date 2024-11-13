@@ -4,16 +4,6 @@
     box-sizing: border-box;
   }
 
-  @font-face {
-    font-family: 'Cinzel';
-    src: url(/frontend/assets/fonts/Cinzel/static/Cinzel-Regular.ttf);
-  }
-  @font-face {
-    font-family: 'Cinzel';
-    src: url(/frontend/assets/fonts/Cinzel/static/Cinzel-Bold.ttf);
-    font-weight: bold;
-  }
-
   body {
     font-family: Montserrat;
   }
