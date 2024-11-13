@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `movies_db`.`movies` (
   `actors` varchar(255) DEFAULT NULL,
   `banner_url` varchar(255) DEFAULT NULL,
   `trailer_url` varchar(255) NOT NULL,
-  PRIMARY KEY (`movie_id`),
+  PRIMARY KEY (`id`),
   UNIQUE INDEX `movie_id_UNIQUE` (`movie_id` ASC) )
 ENGINE = InnoDB;
 
