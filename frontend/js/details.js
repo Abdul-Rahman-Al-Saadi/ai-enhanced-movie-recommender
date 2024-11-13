@@ -13,6 +13,7 @@ const movie = JSON.parse(localStorage.getItem('movie'));
 document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('description').style.backgroundImage = `url(${movieData.banner_url})`;
+    document.getElementById('movie-poster').src = `url(${movieData.banner_url})`;
     document.querySelector('div.description > div > h2').textContent = movieData.title;
 
     document.getElementById('movie-date').textContent = movieData.release_date;
