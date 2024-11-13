@@ -1,4 +1,8 @@
-let isLoggedIn = true;
+import { user_id } from './main.js';
+
+user_id ? isLoggedIn = true : isLoggedIn = false;
+
+
 let user_id = 2;
 let movie_id = 2;
 let startTime;
