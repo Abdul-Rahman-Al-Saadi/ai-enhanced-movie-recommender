@@ -7,6 +7,20 @@ let user_id = 2;
 let movie_id = 2;
 let startTime;
 
+// fillign the page according to the chosen movie
+const movie = JSON.parse(localStorage.getItem('movie'));
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('div.description > div > h2').textContent = movieData.title;
+
+    document.getElementById('movie-date').textContent = movieData.release_date;
+    document.getElementById('movie-genre').textContent = movieData.genre;
+    document.getElementById('movie-duration').textContent = movieData.duration;
+    document.getElementById('movie-cast').textContent = movieData.actors;
+
+    document.querySelector('.movie-summary p').textContent = movieData.description;
+});
+
 window.addEventListener('load', () => {startTime = Date.now()});
 
 const sendUserActivity = async (timeSpent) => {
