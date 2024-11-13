@@ -1,28 +1,30 @@
 import { user_id } from './main.js';
 
+let isLoggedIn = false;
+
 user_id ? isLoggedIn = true : isLoggedIn = false;
 
 
-let user_id = 2;
+// let user_id = 2;
 let movie_id = 2;
 let startTime;
 
 // fillign the page according to the chosen movie
-const movie = JSON.parse(localStorage.getItem('movie'));
+const movieData = JSON.parse(localStorage.getItem('movie'));
 
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
 
-    document.querySelector('description').style.backgroundImage = `url(${movieData.banner_url})`;
-    document.getElementById('movie-poster').src = `url(${movieData.banner_url})`;
-    document.querySelector('div.description > div > h2').textContent = movieData.title;
+//     document.querySelector('.description').style.backgroundImage = `url(${movieData.banner_url})`;
+//     document.getElementById('movie-poster').src = `url(${movieData.banner_url})`;
+//     document.querySelector('div.description > div > h2').textContent = movieData.title;
 
-    document.getElementById('movie-date').textContent = movieData.release_date;
-    document.getElementById('movie-genre').textContent = movieData.genre;
-    document.getElementById('movie-duration').textContent = movieData.duration;
-    document.getElementById('movie-cast').textContent = movieData.actors;
+//     document.getElementById('movie-date').textContent = movieData.release_date;
+//     document.getElementById('movie-genre').textContent = movieData.genre;
+//     document.getElementById('movie-duration').textContent = movieData.duration;
+//     document.getElementById('movie-cast').textContent = movieData.actors;
 
-    document.querySelector('.movie-summary p').textContent = movieData.description;
-});
+//     document.querySelector('.movie-summary p').textContent = movieData.description;
+// });
 
 window.addEventListener('load', () => {startTime = Date.now()});
 
