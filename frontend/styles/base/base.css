@@ -60,6 +60,9 @@ nav ul li{
     }
 
     .burger-navbar {
+
+        float: left;
+        overflow: hidden;
         width: 50px;
         height: 50px;
         display: flex;
@@ -73,6 +76,7 @@ nav ul li{
             height: 2px;
             background-color: white;
             position: relative;
+            margin: 0;
         }
 
             .burger-navbar .hamburger::before,
@@ -91,5 +95,36 @@ nav ul li{
 
             .burger-navbar .hamburger::after {
                 top: 6px;
+            }
+
+            .dropdown-content {
+              display: none; 
+              position: absolute;
+              background-color:#151516;
+              min-width: 160px;
+              box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+              z-index: 1;
+              top: 100%; 
+              left: 0
+            }
+            
+
+            .dropdown-content a {
+              float: none;
+              color: white;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+              text-align: left;
+            }
+            
+
+            .dropdown-content a:hover {
+              background-color: #151300;
+            }
+            
+            .burger-navbar:hover .dropdown-content {
+              display: block;
+              
             }
 }

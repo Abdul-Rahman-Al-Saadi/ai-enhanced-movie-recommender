@@ -26,6 +26,7 @@
 }
 h1, h1 span{
     color:white;
+    font-size: clamp(2rem, 5vw, 5rem);
 }
 h1 span{
     font-weight:300;
