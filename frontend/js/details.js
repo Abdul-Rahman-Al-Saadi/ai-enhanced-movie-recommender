@@ -1,4 +1,4 @@
-import { user_id } from './main.js';
+const user_id = localStorage.getItem('user_id');
 
 let isLoggedIn = false;
 
