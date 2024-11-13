@@ -55,13 +55,9 @@ main {
 }
 
 .movie-info-titles {
-    align-items: center;
     min-width: 200px;
     gap: 20px;
-}
-
-.movie-info-titles h3 {
-    text-align: center;
+    margin-left: 20px;
 }
 
 .movie-info {
@@ -75,10 +71,12 @@ main {
     align-items: center;
     margin-top: 20px;
     margin-left: 20px;
+    min-width: 200px;
 }
 
 .stars {
     font-size: 20px;
+    margin-bottom: 3px;
     cursor: pointer;
 }
 
@@ -103,14 +101,17 @@ main {
 
 .movie-summary p {
     padding-left: 100px;
-    width: 80%;
+    width: 90%;
+}
+
+.rating-container {
+    justify-content: space-between;
 }
 
 .bookmark-container {
-    justify-content: space-between;
     align-items: center;
     height: 100px;
-    padding: 0 20%;
+    padding: 0 100px;
 }
 
 .bookmark-container a {
@@ -145,7 +146,7 @@ main {
         align-items: center;
     }
     .poster-img {
-        max-width: 250px;
+        max-width: 300px;
         margin: 20px;
     }
     .description h2 {
