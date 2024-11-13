@@ -34,3 +34,14 @@
     align-items: center;
     justify-content: center;
   }
+.filled-btn {
+    height: auto;
+    width: auto;
+    border: none;
+    border-radius: 5px;
+    padding:10px 24px;
+    text-align: center;
+    background-color: #0080ff;
+    color: white;
+    font-weight: 700;
+}
