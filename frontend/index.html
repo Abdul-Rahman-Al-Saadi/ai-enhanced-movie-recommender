@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./styles/home.css">
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../frontend/cards's-div.css">
-    <link rel="stylesheet" href="../frontend/styles/chat_bot.css">    
+    <link rel="stylesheet" href="../frontend/styles/chat_bot.css">
+    <link rel="stylesheet" href="./signin.css">    
     <title>Document</title>
 </head>
 <body>
@@ -35,8 +36,24 @@
                 <a href=""><li>NEW RELEASES</li></a>
             </ul>
             <button class="filled-btn" id="register-btn">Register</button>
+            <button class="filled-btn" id="signin-btn">Sign In</button>
         </div>
     </nav>
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signin-form">
+                <label for="username">Username or Email:</label>
+                <input type="text" id="username" name="username" required>
+    
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+    
+                <button type="submit" class="filled-btn">Sign In</button>
+            </form>
+        </div>
+    </div>
     <section class="flex column full-width hero-section">
         <div class="flex column hero-section-content">
             <div class="flex row">
@@ -50,6 +67,27 @@
             </div>
         </div>
     </section>
+    <div class="scroll-container">
+        <div class="card-container ">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2</div>
+            <div class="card">Card 3</div>
+            <!-- Add more cards as needed -->
+        </div>
+        <div class="card-container ">
+            <div class="card">Card 4</div>
+            <div class="card">Card 5</div>
+            <div class="card">Card 6</div>
+            <!-- Add more cards as needed -->
+        </div>
+        <div class="card-container ">
+            <div class="card">Card 7</div>
+            <div class="card">Card 8</div>
+            <div class="card">Card 9</div>
+            <!-- Add more cards as needed -->
+        </div>
+    </div>
+    
 
 
 <div id="chat-bot-wrapper">
@@ -66,4 +104,5 @@
 </body>
     <script src="../frontend/js/chat_bot.js"></script>
     <script src="../frontend/js/main.js"></script>
+    <script src="./signin.js"></script>
 </html>
