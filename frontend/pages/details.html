@@ -10,8 +10,28 @@
     <title>Details</title>
 </head>
 <body>
-    <nav>
-        Movie Details
+    <nav class="full-width flex row ">
+        <div class="burger-navbar">
+            <div class="hamburger"></div>
+            <div class="dropdown-content">
+                <a href="#">MOST WATCHED</a>
+                <a href="#">RECOMMENDED</a>
+                <a href="#">BOOKMARKS</a>
+                <a href="#">NEW RELEASES</a>
+            </div>
+        </div>
+        <div class="logo-img">
+        <img src="" />
+        </div>
+        <div class="flex row navbar">
+            <ul class="flex row center">
+                <a href=""><li>MOST WATCHED</li></a>
+                <a href=""><li>RECOMMENDED</li></a>
+                <a href=""><li>BOOKMARKS</li></a>
+                <a href=""><li>NEW RELEASES</li></a>
+            </ul>
+            <button class="filled-btn" id="register-btn">Register</button>
+        </div>
     </nav>
     <main class="flex full-width">
         <div class="poster-img-container flex center">
@@ -74,6 +94,7 @@
             </form>
           </div>
     </main>
-    <script src="/frontend/js/details.js"></script>
+    <script type="module" src="/frontend/js/main.js"></script>
+    <script type="module" src="/frontend/js/details.js"></script>
 </body>
 </html>

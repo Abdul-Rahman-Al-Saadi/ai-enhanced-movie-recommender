@@ -1,7 +1,34 @@
-let isLoggedIn = true;
-let user_id = 2;
+const user_id = localStorage.getItem('user_id');
+
+let isLoggedIn = false;
+
+user_id ? isLoggedIn = true : isLoggedIn = false;
+
+
+// let user_id = 2;
 let movie_id = 2;
 let startTime;
+
+// fillign the page according to the chosen movie
+const movieData = JSON.parse(localStorage.getItem('movie'));
+// console.log(movieData);
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    document.querySelector('.description').style.backgroundImage = `
+    linear-gradient(to right, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0)),
+    linear-gradient(to top, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.3)),
+    url(${movieData.banner_url})`;
+    document.getElementById('movie-poster').src = movieData.banner_url;
+    document.querySelector('div.description > div > h2').textContent = movieData.title;
+
+    document.getElementById('movie-date').textContent = movieData.release_date;
+    document.getElementById('movie-genre').textContent = movieData.genre;
+    document.getElementById('movie-duration').textContent = movieData.duration;
+    document.getElementById('movie-cast').textContent = movieData.actors;
+
+    document.querySelector('.movie-summary p').textContent = movieData.description;
+});
 
 window.addEventListener('load', () => {startTime = Date.now()});
 

@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
+h1{
+    text-align: center;
+    align-content: center;
+    background-color:black;
+    color: white;
+    height: 100px;
+}
+
+p {
+    font-size: x-large;
+    font-weight: 500;
+}
+span {
+    font-size: large;
+    font-weight: 300;
+}
+
+div:has(#wonder-img) {
+    width: 100%;
+    height: 40vh;
+}
+
+#wonder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+a, .card, .card > div, .card-img {
+    border-top-left-radius: 75px;
+    border-top-right-radius: 75px;
+    border-bottom-left-radius: 75px;
+}
+ a {
+    width: 60%;
+    height: 20%;
+    background-color: black;
+    color: white;
+    font-size: medium;
+    align-self: center;
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 40px;
+    gap: 10px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+    text-align: center;
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    background-color: white;
+    border: black solid 5px;
+    transition-duration: 0.5s;
+}
+
+.card:hover {
+    box-shadow: 10px 10px;
+    width: 350px;
+    height: 225px;
+}
+
+.card > div {
+    width: 100%;
+    height: 70%;
+    position: relative;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.wonder-name {
+    text-align: center;
+    align-content: center;
+    color: white;
+    background-color: black;
+    margin-top: 10px;
+    opacity: 0.75;
+    font-size: large;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
