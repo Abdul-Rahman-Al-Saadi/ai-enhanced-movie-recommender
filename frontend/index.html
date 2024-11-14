@@ -1,50 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/base/utilities.css">
-    <link rel="stylesheet" href="./styles/base/colors.css">
-    <link rel="stylesheet" href="./styles/base/base.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles/home.css">
-    <title>Homepage</title>
+    <link rel="stylesheet" href="../frontend/cards's-div.css">
+    <link rel="stylesheet" href="../frontend/styles/chat_bot.css">    
+    <title>Document</title>
 </head>
 <body>
-    <nav class="full-width flex row ">
-        <div class="burger-navbar">
-            <div class="hamburger"></div>
-            <div class="dropdown-content">
-                <a href="#">MOST WATCHED</a>
-                <a href="#">RECOMMENDED</a>
-                <a href="#">BOOKMARKS</a>
-                <a href="#">NEW RELEASES</a>
-            </div>
-        </div>
 
-        <div class="logo-img">
-        <img src="" />
-        </div>
-        <div class="flex row navbar">
-            <ul class="flex row center">
-                <a href=""><li>MOST WATCHED</li></a>
-                <a href=""><li>RECOMMENDED</li></a>
-                <a href=""><li>BOOKMARKS</li></a>
-                <a href=""><li>NEW RELEASES</li></a>
-            </ul>
-            <button class="filled-btn" id="register-btn">Register</button>
-        </div>
-    </nav>
-    <section class="flex column full-width hero-section">
-        <div class="flex column hero-section-content">
-            <div class="flex row">
-                <h1>Explore.</h1>
-                <h1><span>Watch.</span></h1>
-                <h1><span>Repeat.</span></h1>
-            </div>
-            <h1>Cinema<span> At Your Fingerprints.</span></h1>
-            <div class="hero-btn">
-            <button class="filled-btn">Watch Now</button>
-            </div>
-        </div>
-    </section>
+
+<div id="chat-bot-wrapper">
+    <button id="chat-button" class="circle-button">💬</button>
+
+    <div id="chatbot-container" class="hidden">
+        <button id="close-chat" class="close-button">✖</button>
+        <div id="chat-display" class="chat-display"></div>
+        <div class="chat-input-container">
+        <input type="text" id="chat-input" class="chat-input" placeholder="Type your message...">
+        <button id="send-button" class="send-button">Send</button>
+    </div>
+</div>
 </body>
+    <script src="../frontend/js/chat_bot.js"></script>
+    </html>

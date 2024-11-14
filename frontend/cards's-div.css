@@ -1,0 +1,46 @@
+.scroll-container {
+    display: flex;
+    flex-direction: column; /* Stacks each card-container vertically */
+    background: linear-gradient(rgba(21,21,22,1), rgba(102,102,102,1));
+    gap: 20px; /* Space between each card-container */
+    padding-left:  20px;  }
+  
+  .card-container {
+    display: flex;
+    gap: 25px; /* Space between cards */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-bottom: 10px; 
+    scroll-snap-type: x mandatory; /* Snap effect for smooth scrolling */
+  }
+  
+  .card-container::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar (optional) */
+  }
+  
+  .card {
+    min-width: 147px;
+    height: 200px;
+    background-color: rgba(204, 204, 204, 0.8);
+    color: #fff;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: regular;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    scroll-snap-align: start;
+    margin-top: 10px;
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Slightly enlarges the card */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a more prominent shadow */
+    background-color: rgba(255, 255, 255, 0.9); /* Lightens the background color */
+    color: #333; /* Changes text color on hover */
+  }
+  
+  
