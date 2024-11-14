@@ -119,9 +119,6 @@
         console.log(movie_ids);
     }
     callOpenAI();
-    // console.log(messageContent);
-    // awaitValues();
-    // console.log(messageContent);
 
     
     
