@@ -16,8 +16,8 @@ const movieData = JSON.parse(localStorage.getItem('movie'));
 document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('.description').style.backgroundImage = `
-    linear-gradient(to right, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0)),
-    linear-gradient(to top, rgba(33, 33, 33, 1), rgba(33, 33, 33, 0.3)),
+    linear-gradient(to right, rgba(21, 21, 22, 1), rgba(21, 21, 22, 0)),
+    linear-gradient(to top, rgba(21, 21, 22, 1), rgba(21, 21, 22, 0.3)),
     url(${movieData.banner_url})`;
     document.getElementById('movie-poster').src = movieData.banner_url;
     document.querySelector('div.description > div > h2').textContent = movieData.title;
