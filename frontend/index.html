@@ -10,7 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../frontend/cards's-div.css">
     <link rel="stylesheet" href="../frontend/styles/chat_bot.css">
-    <!-- <link rel="stylesheet" href="./signin.css">     -->
+
+    <link rel="stylesheet" href="./sign.css">    
+
     <title>Document</title>
 </head>
 <body>
@@ -39,21 +41,34 @@
             <button class="filled-btn" id="signin-btn">Sign In</button>
         </div>
     </nav>
-    <div id="signin-modal" class="modal">
+    <div id="register-modal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" id="close-modal">&times;</span>
-            <h2>Sign In</h2>
-            <form id="signin-form">
-                <label for="username">Username or Email:</label>
-                <input type="text" id="username" name="username" required>
-    
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-    
-                <button type="submit" class="filled-btn">Sign In</button>
+            <span class="close" id="register-close">&times;</span>
+            <h2>Register</h2>
+            <!-- Add your registration form here -->
+            <form>
+                <input type="text" placeholder="Username" required />
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+                <button type="submit">Register</button>
             </form>
         </div>
     </div>
+    
+    <!-- Sign In Modal -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="signin-close">&times;</span>
+            <h2>Sign In</h2>
+            <!-- Add your sign-in form here -->
+            <form>
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+
     <section class="flex column full-width hero-section">
         <div class="flex column hero-section-content">
             <div class="flex row">
@@ -87,5 +102,8 @@
 </body>
     <script src="../frontend/js/chat_bot.js"></script>
     <script src="../frontend/js/main.js"></script>
-    <!-- <script src="./signin.js"></script> -->
+
+    <script src="./sign.js"></script>
+    <script src="modalHandler.js"></script>
+
 </html>
