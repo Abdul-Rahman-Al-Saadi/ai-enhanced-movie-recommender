@@ -21,7 +21,7 @@ USE `movies_db` ;
 -- Table `movies_db`.`movies`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `movies_db`.`movies` (
- `id` int(11) NOT NULL,
+ `movie_id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `duration` varchar(255) DEFAULT NULL,
   `genre` varchar(255) DEFAULT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `movies_db`.`movies` (
   `actors` varchar(255) DEFAULT NULL,
   `banner_url` varchar(255) DEFAULT NULL,
   `trailer_url` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`movie_id`),
   UNIQUE INDEX `movie_id_UNIQUE` (`movie_id` ASC) )
 ENGINE = InnoDB;
 
@@ -40,7 +40,7 @@ ENGINE = InnoDB;
 -- Table `movies_db`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `movies_db`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(255) NULL,
   `email` VARCHAR(255) NULL,
   `password` VARCHAR(255) NULL,

@@ -6,7 +6,7 @@ if($connection->connect_error){
     die("Unsuccessful connection with the Database");
 }
 
-$query = $connection->prepare("SELECT * FROM users");
+$query = $connection->prepare("SELECT username, email, type FROM users");
 
 if ($query === false) {
     die("Error preparing the SQL query: " . $connection->error);
@@ -23,5 +23,5 @@ if($result->num_rows > 0){
     }
     echo json_encode($array);
 }else{
-    echo json_encode(["message"=> "No movies Found"]);
+    echo json_encode(["message"=> "No Users Found"]);
 }

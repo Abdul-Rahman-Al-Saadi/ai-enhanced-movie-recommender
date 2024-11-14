@@ -11,26 +11,38 @@
 </head>
 <body>
     <nav>Admin Panel</nav>
+<div class="flex row wrap">
+    <div class="side-bar-div flex">
     <div class="side-bar flex column">
-        <div class="user-section flex row">
+        <div id="users_btn" class="user-section flex row">
             <div class="user-img">
-                <img src="/frontend/assets/icons/user.png">
+                <img src="../assets/icons/user.png">
             </div>
             <p>Users</p>
         </div>
-        <div class="user-section flex row">
+        <div id="logout_btn" class="user-section flex row">
             <div class="user-img">
-                <img src="/frontend/assets/icons/activity.png">
-            </div>
-            <p>Activities</p>
-        </div>
-        <div class="user-section flex row">
-            <div class="user-img">
-                <img src="/frontend/assets/icons/logout.png">
+                <img src="../assets/icons/logout.png">
             </div>
             <p>Log out</p>
         </div>
     </div>
-    
+    </div>
+    <div id="users_section" class="flex row wrap users">
+        <div class="flex column" id ="username">
+            <h3 class="flex center">Username</h3>
+        </div>
+        <div class="flex column" id ="useremail">
+            <h3 class="flex center">Email</h3>
+        </div>
+        <div class="flex column" id ="usertype">
+            <h3 class="flex center">User Type</h3>
+        </div>
+        <div class="flex column" id ="useraccess">
+            <h3 class="flex center">Blocked</h3>
+        </div>
+    </div>
+</div>
+<script src="../js/admin.js"></script>
 </body>
 </html>
