@@ -6,7 +6,27 @@
             if (response.ok) {
                 console.log("successful");
                 const data = await response.json();
-                // getIdAndTitle(data);
+                createCards(data);
+                return data;
+            } else {
+                console.log("unsuccessful");
+                return [];
+            }
+        } catch (error) {
+            console.error("Error fetching movies:", error);
+            return [];
+        }
+    };
+
+    const fetchUserActivities = async () => {
+        try {
+            const user_id = 2;
+            const queryString = new URLSearchParams({user_id}).toString();
+            const response = await fetch(`http://localhost/ai-enhanced-movie-recommender/server/getUserActivities.php?${queryString}`);
+            if (response.ok) {
+                console.log("successful");
+                const data = await response.json();
+                console.log(data);
                 return data;
             } else {
                 console.log("unsuccessful");
@@ -20,14 +40,6 @@
 
     function getIdAndTitle(movies){
         const data = movies;
-        console.log(typeof(data));
-        console.log(data);
-        
-        // const idMovieList = Object.values(data).map(movie => ({
-        //     id: movie.id,
-        //     title: movie.title
-        //   }));
-        // return idMovieList;
         
         for (let key in data) {
         if (data.hasOwnProperty(key)) { 
@@ -36,14 +48,45 @@
         }
         }
         return movieList;
-        // console.log(movieList);
     }
+
+    async function createCards(movies) {
+    
+        const container = document.querySelector('.card-container');
+        console.log(movies);
+        for (const movie of movies) {
+            const parentDiv = document.createElement('div');
+            const img = document.createElement('img');
+            const anchor = document.createElement('a');
+            const h3 = document.createElement('h3');
+            const childDiv = document.createElement('div');
+            childDiv.append(img);
+            parentDiv.append(childDiv,anchor, h3);
+            
+            parentDiv.classList = 'card';
+            anchor.innerText = "";
+            anchor.style.cursor = 'pointer';
+    
+            
+            h3.innerText = '';
+            img.src = await movie.banner_url;
+            console.log(movie);
+            anchor.href = "./pages/details.html";
+            img.addEventListener('click', () => {
+                localStorage.setItem('movie', JSON.stringify(movie));
+                window.location.href = './pages/details.html';
+            });
+            
+    
+            container.appendChild(parentDiv);
+        };
+    };
     
     const movieList = [];
     const movies = fetchMovies();
+    
     const idMovieList = getIdAndTitle(movies);
-    const userInteractions = [1, 3, 5];
-    // const interactedMovies = movies.filter(movie => userInteractions.includes(movie.id));
+    const userInteractions = fetchUserActivities();
     console.log("idListmovies movies", idMovieList);
 
     const prompt = `
@@ -110,9 +153,6 @@
         console.log(movie_ids);
     }
     callOpenAI();
-    // console.log(messageContent);
-    // awaitValues();
-    // console.log(messageContent);
 
     
     
