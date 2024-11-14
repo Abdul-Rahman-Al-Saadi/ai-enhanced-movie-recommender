@@ -6,8 +6,8 @@
             if (response.ok) {
                 console.log("successful");
                 const data = await response.json();
-                getIdAndTitle(data);
-                // return data;
+                // getIdAndTitle(data);
+                return data;
             } else {
                 console.log("unsuccessful");
                 return [];
@@ -18,16 +18,43 @@
         }
     };
 
-    function getIdAndTitle(data){
-        const idMovieList = data.map(item => ({
-            id: item.movie_id,
-            title: item.title,
-        }))
-        // console.log(subList);
-        console.log(idMovieList);
+    function getIdAndTitle(movies){
+        const data = movies;
+        console.log(typeof(data));
+        console.log(data);
+        
+        // const idMovieList = Object.values(data).map(movie => ({
+        //     id: movie.id,
+        //     title: movie.title
+        //   }));
+        // return idMovieList;
+        
+        for (let key in data) {
+        if (data.hasOwnProperty(key)) { 
+            const { movie_id, title } = data[key];
+            movieList.push({ movie_id, title });
+        }
+        }
+        return movieList;
+        // console.log(movieList);
     }
+    
+    const movieList = [];
+    const movies = fetchMovies();
+    const idMovieList = getIdAndTitle(movies);
+    const userInteractions = [1, 3, 5];
+    // const interactedMovies = movies.filter(movie => userInteractions.includes(movie.id));
+    console.log("idListmovies movies", idMovieList);
 
-    fetchMovies();
+    const prompt = `
+    I have a list of movies with their IDs:
+    ${idMovieList.map(movie => `${movie.id}: ${movie.title}`).join("\n")}
+  
+    The user has interacted with the following movies IDs:
+    ${userInteractions}
+  
+    Based on the movies the user has interacted with, suggest 5 other movie IDs that the user may enjoy, considering genres, themes, and overall similarity. Provide only the movie IDs.
+    `;
 
 
 // Inside the dynamic creation of movies
@@ -52,7 +79,15 @@
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo', 
-                messages: [{ "role": "user", "content": "Say this is a test!" }]
+                messages: [
+                    {
+                        role: 'system',
+                        content: 'You are a helpful assistant that recommends movies based on user interactions.'
+                      },
+                    { 
+                        role: "user", 
+                        content: prompt 
+                    }]
             })
         });
     
