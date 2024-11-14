@@ -11,7 +11,7 @@ let startTime;
 
 // fillign the page according to the chosen movie
 const movieData = JSON.parse(localStorage.getItem('movie'));
-console.log(movieData);
+// console.log(movieData);
 
 document.addEventListener('DOMContentLoaded', () => {
 
