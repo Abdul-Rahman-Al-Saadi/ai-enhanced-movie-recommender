@@ -53,7 +53,7 @@
     The user has interacted with the following movies IDs:
     ${userInteractions}
   
-    Based on the movies the user has interacted with, suggest 5 other movie IDs that the user may enjoy, considering genres, themes, and overall similarity. Provide only the movie IDs.
+    Based on the movies the user has interacted with, suggest 10 other movie IDs that the user may enjoy, considering genres, themes, and overall similarity. Sort them from the most recommended to the least. Provide only the movie IDs as a pure Json format.
     `;
 
 
@@ -96,10 +96,23 @@
             return;
         }
     
-        const data = await response.json();
-        console.log(data);
+        let data = await response.json();
+        data = data.choices[0].message.content; 
+        // recommendedMoviesIDs = data;
+        awaitValues(data);
+        return data;
     }
     
+    
+    function awaitValues(data){
+        console.log(data);
+        const movie_ids = JSON.parse(data);
+        console.log(movie_ids);
+    }
     callOpenAI();
+    // console.log(messageContent);
+    // awaitValues();
+    // console.log(messageContent);
+
     
     
