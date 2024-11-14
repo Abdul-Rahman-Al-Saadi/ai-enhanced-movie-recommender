@@ -1,7 +1,7 @@
 import json
 import mysql.connector
 
-with open('/Users/hamzahah/Documents/VS Code SE Factory/ai-enhanced-movie-recommender/scrapping/moviesdata.json', encoding='utf-8') as f:
+with open("C:\\xampp\\htdocs\\ai-enhanced-movie-recommender\\scrapping\\moviesdata.json", encoding='utf-8') as f:
     movies = json.load(f)
 
 db = mysql.connector.connect(
