@@ -6,7 +6,26 @@
             if (response.ok) {
                 console.log("successful");
                 const data = await response.json();
-                // getIdAndTitle(data);
+                return data;
+            } else {
+                console.log("unsuccessful");
+                return [];
+            }
+        } catch (error) {
+            console.error("Error fetching movies:", error);
+            return [];
+        }
+    };
+
+    const fetchUserActivities = async () => {
+        try {
+            const user_id = 2;
+            const queryString = new URLSearchParams({user_id}).toString();
+            const response = await fetch(`http://localhost/ai-enhanced-movie-recommender/server/getUserActivities.php?${queryString}`);
+            if (response.ok) {
+                console.log("successful");
+                const data = await response.json();
+                console.log(data);
                 return data;
             } else {
                 console.log("unsuccessful");
@@ -20,14 +39,6 @@
 
     function getIdAndTitle(movies){
         const data = movies;
-        console.log(typeof(data));
-        console.log(data);
-        
-        // const idMovieList = Object.values(data).map(movie => ({
-        //     id: movie.id,
-        //     title: movie.title
-        //   }));
-        // return idMovieList;
         
         for (let key in data) {
         if (data.hasOwnProperty(key)) { 
@@ -36,14 +47,12 @@
         }
         }
         return movieList;
-        // console.log(movieList);
     }
     
     const movieList = [];
     const movies = fetchMovies();
     const idMovieList = getIdAndTitle(movies);
-    const userInteractions = [1, 3, 5];
-    // const interactedMovies = movies.filter(movie => userInteractions.includes(movie.id));
+    const userInteractions = fetchUserActivities();
     console.log("idListmovies movies", idMovieList);
 
     const prompt = `
