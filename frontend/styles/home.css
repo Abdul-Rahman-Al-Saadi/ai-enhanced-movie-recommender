@@ -1,0 +1,42 @@
+.hero-section {
+    height: 100vh;
+    background-image: url(../assets/images/hero-background.png);
+    background-repeat:repeat;
+    background-size:contain;
+    padding: 50px;
+    justify-content: center;
+    
+}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, black, transparent);
+    opacity: 1; 
+    z-index: 1;
+}
+.hero-section-content {
+    font-size: xxx-large;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+h1, h1 span{
+    color:white;
+    font-size: clamp(2rem, 5vw, 5rem);
+}
+h1 span{
+    font-weight:300;
+}
+.hero-btn{
+    height:auto;
+    width:auto;
+}
+@media only screen and (max-width: 1030px) {
+ .hero-section-content>div {
+     flex-direction:column;
+ }
+}
